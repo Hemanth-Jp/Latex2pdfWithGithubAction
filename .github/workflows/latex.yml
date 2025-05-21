@@ -8,32 +8,21 @@ on:
 
 jobs:
   build-pdf:
-    name: Compile LaTeX to PDF
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install TeX Live and required packages
+      - name: Install LaTeX
         run: |
           sudo apt-get update
           sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-bibtex-extra biber
 
-      - name: First LaTeX Compilation
-        run: xelatex -interaction=nonstopmode main.tex || true
-
-      - name: Run Biber
-        run: biber main || true
-
-      - name: Second LaTeX Compilation
-        run: xelatex -interaction=nonstopmode main.tex || true
-
-      - name: Final LaTeX Compilation
-        run: xelatex -interaction=nonstopmode main.tex || true
-
-      - name: Upload PDF
-        uses: actions/upload-artifact@f5f5544e5dcb2db5fca14fdd69203e4d7f6b44b1
-        with:
-          name: main-pdf
-          path: main.pdf
+      - name: Compile LaTeX to PDF
+        run: |
+          xelatex -interaction=nonstopmode main.tex || true
+          biber main || true
+          xelatex -interaction=nonstopmode main.tex || true
+          xelatex -interaction=nonstopmode main.tex || true
+          ls -lh main.pdf
