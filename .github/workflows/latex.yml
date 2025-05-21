@@ -10,9 +10,13 @@ jobs:
   build-pdf:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      actions: write  # required for artifact upload in v4
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install LaTeX
         run: |
@@ -28,7 +32,7 @@ jobs:
           ls -lh main.pdf
 
       - name: Upload PDF
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: main-pdf
           path: main.pdf
