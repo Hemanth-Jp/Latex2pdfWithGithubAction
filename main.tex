@@ -1,0 +1,88 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc} % Encoding
+\usepackage{graphicx}       % For images
+\usepackage{amsmath}        % Math symbols
+\usepackage{caption}        % Captions for tables/figures
+\usepackage{biblatex}       % For bibliography
+\usepackage{hyperref}       % For hyperlinks
+\usepackage{booktabs}       % Nice tables
+
+% Bibliography file
+\addbibresource{references.bib} % References file (references.bib)
+
+% Title and Author
+\title{An Example LaTeX Document}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+% Title page
+\maketitle
+
+% Abstract
+\begin{abstract}
+This document provides an example of a LaTeX project containing sections, images, tables, equations, and a bibliography. It is designed to demonstrate basic and intermediate LaTeX functionalities.
+\end{abstract}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Section 1
+\section{Introduction}
+LaTeX is a powerful typesetting system widely used for creating documents with high-quality typography. This document showcases the use of various LaTeX features.
+
+% Section 2
+\section{Inserting Images}
+Images can be included using the \texttt{graphicx} package. For example:
+
+ 
+
+As shown in Figure~\ref{fig:example-image}, images can be resized and labeled for reference.
+
+% Section 3
+\section{Tables}
+Tables can be created using the \texttt{tabular} environment. Here's an example:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|l|c|r|}
+    \hline
+    \textbf{Item} & \textbf{Quantity} & \textbf{Price (\$)} \\ \hline
+    Apples        & 5                 & 3.00               \\ \hline
+    Bananas       & 3                 & 2.50               \\ \hline
+    Oranges       & 8                 & 4.00               \\ \hline
+    \end{tabular}
+    \caption{Example of a table.}
+    \label{tab:example-table}
+\end{table}
+
+Table~\ref{tab:example-table} dem onstrates the organization of data into rows and columns.
+
+% Section 4
+\section{Mathematics}
+LaTeX is excellent for writing mathematical equations. For example:
+
+\begin{equation}
+    E = mc^2
+    \label{eq:einstein}
+\end{equation}
+
+Equation~\ref{eq:einstein} represents the famous equation from Einstein's theory of relativity.
+
+% Section 5
+\section{Bibliography Example}
+You can cite references in your text using \texttt{biblatex}. For example, see~\cite{knuth1984tex}.
+
+% Conclusion
+\section{Conclusion}
+This document demonstrated how to include various elements in a LaTeX project. With practice, you can create complex and professional documents.
+
+% Bibliography
+\newpage
+\printbibliography
+
+\end{document}
